@@ -8,32 +8,40 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
     <style>
+        /* Ensure project cards are uniform in size */
         .projects-container {
             position: relative;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             overflow: hidden;
         }
+        
         .projects-grid {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.6s ease-in-out;
             width: 200%;
         }
+
         .project-card {
             min-width: 100%;
             box-sizing: border-box;
             text-align: center;
         }
+
+        /* Ensure images resize properly without cutting off */
         .project-card img {
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            height: 300px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensures the image fills the container while keeping aspect ratio */
+            border-radius: 10px;
         }
+
         .nav-dots {
             text-align: center;
             margin-top: 10px;
         }
+
         .dot {
             height: 12px;
             width: 12px;
@@ -43,6 +51,7 @@
             display: inline-block;
             cursor: pointer;
         }
+
         .dot.active {
             background-color: #333;
         }
@@ -102,7 +111,7 @@
             <button class="timeline-event" onclick="location.href='2021 Internship Subpage.html'">2021 - Position at Cottonwood Chamber of Commerce</button>
             <button class="timeline-event" onclick="location.href='2022 Internship Subpage.html'">2022 - Internship at Chevron</button>
             <button class="timeline-event" onclick="location.href='2023 Internship Subpage.html'">2023 - Internship at Chevron</button>
-            <button class="timeline-event" onclick="location.href='2024 Internship Subpage.html'">2024 - Internship at S&P-Global</button>
+            <button class="timeline-event" onclick="location.href='2024 Internship Subpage.html'">2024 - Internship at S&P Global</button>
             <button class="timeline-event" onclick="location.href='2025 Internship Subpage.html'">2025 - Position at Mortenson</button>
         </div>
     </section>
@@ -122,24 +131,25 @@
         const slides = document.querySelectorAll(".project-card");
         const dots = document.querySelectorAll(".dot");
         const slider = document.getElementById("project-slider");
-        
+
         function updateCarousel() {
             slider.style.transform = `translateX(${-currentIndex * 100}%)`;
             dots.forEach(dot => dot.classList.remove("active"));
             dots[currentIndex].classList.add("active");
         }
-        
+
         function moveToSlide(index) {
             currentIndex = index;
             updateCarousel();
         }
-        
+
         function autoSlide() {
             currentIndex = (currentIndex + 1) % slides.length;
             updateCarousel();
         }
-        
-        setInterval(autoSlide, 4000);
+
+        setInterval(autoSlide, 4000); // Slows down to 4 seconds
     </script>
 </body>
 </html>
+
