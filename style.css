@@ -39,11 +39,12 @@ body{
   position: relative;
 }
 
-/* fine graph-paper grid across whole page */
-body::before{
+/* fine graph-paper grid — side rails only, never behind text */
+body::before, body::after{
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0; bottom: 0;
+  width: max(0px, calc((100vw - var(--sheet-max)) / 2));
   pointer-events: none;
   z-index: 0;
   background-image:
@@ -51,6 +52,8 @@ body::before{
     linear-gradient(90deg, var(--navy-line) 1px, transparent 1px);
   background-size: 28px 28px;
 }
+body::before{ left: 0; }
+body::after{ right: 0; }
 
 a{ color: var(--cyan); }
 
@@ -433,6 +436,9 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 .tl-entry ul{ margin: 14px 0 0; padding-left: 18px; color: var(--ink-dim); font-size: 14.5px; }
 .tl-entry li{ margin-bottom: 6px; }
 .tl-entry.early{ opacity: 0.82; }
+.tl-entry.edu .tl-dot{ border-color: var(--cyan); }
+.tl-entry.edu .tl-role{ color: var(--cyan); }
+.tl-entry.edu .tl-org{ color: var(--cyan); }
 .tl-note{
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11.5px;
