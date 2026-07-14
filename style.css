@@ -7,10 +7,11 @@
 
 :root{
   /* ---- palette ---- */
-  --navy:        #0F2A44;   /* primary background — v1 blue */
+  --navy:        #0F2A44;   /* grid "square" background — unchanged */
   --navy-deep:   #0A1E33;   /* deeper background / footer */
-  --navy-line:   rgba(11, 14, 19, 0.55); /* grid lines — v4's dark square color */
-  --navy-line-strong: rgba(11, 14, 19, 0.85);
+  --navy-line:   rgba(90, 180, 255, 0.30); /* grid lines — v4 bright blue */
+  --navy-line-strong: rgba(90, 180, 255, 0.55);
+  --content-bg:  #0B0E13;   /* main content column background — v4 background */
   --cyan:        #8FD6FF;   /* blueprint linework / headings on navy */
   --cyan-dim:    #5B93B8;
   --ink:         #EAF3FB;   /* body text on navy */
@@ -54,6 +55,18 @@ body::before, body::after{
 }
 body::before{ left: 0; }
 body::after{ right: 0; }
+
+/* main content column — solid v4-dark background, sits above the grid rails */
+.content-band{
+  position: fixed;
+  top: 0; bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, var(--sheet-max));
+  background: var(--content-bg);
+  z-index: 0;
+  pointer-events: none;
+}
 
 a{ color: var(--cyan); }
 
