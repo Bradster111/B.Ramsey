@@ -7,10 +7,10 @@
 
 :root{
   /* ---- palette ---- */
-  --navy:        #0F2A44;   /* primary blueprint background */
-  --navy-deep:   #0A1E33;   /* deeper background / footer */
-  --navy-line:   rgba(160, 205, 240, 0.16); /* fine grid lines on navy */
-  --navy-line-strong: rgba(160, 205, 240, 0.32);
+  --navy:        #0B0E13;   /* near-black charcoal, cool undertone */
+  --navy-deep:   #05070A;   /* deeper background / footer */
+  --navy-line:   rgba(160, 205, 240, 0.10); /* fine grid lines */
+  --navy-line-strong: rgba(160, 205, 240, 0.24);
   --cyan:        #8FD6FF;   /* blueprint linework / headings on navy */
   --cyan-dim:    #5B93B8;
   --ink:         #EAF3FB;   /* body text on navy */
@@ -112,7 +112,7 @@ h1,h2,h3,h4{
   top: 18px;
   right: 18px;
   border: 1px solid var(--navy-line-strong);
-  background: rgba(10, 30, 51, 0.55);
+  background: rgba(6, 9, 13, 0.6);
   backdrop-filter: blur(2px);
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10.5px;
@@ -308,7 +308,7 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 .about-photo{
   border: 1px solid var(--navy-line-strong);
   padding: 10px;
-  background: rgba(10,30,51,.4);
+  background: rgba(6,9,13,.5);
 }
 .about-photo img{ width: 100%; display: block; filter: grayscale(15%) contrast(1.03); }
 .about-photo .cap{
@@ -359,7 +359,7 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 }
 .proj-card{
   border: 1px solid var(--navy-line-strong);
-  background: rgba(10, 30, 51, 0.35);
+  background: rgba(6, 9, 13, 0.45);
   text-decoration: none;
   color: var(--ink);
   display: block;
