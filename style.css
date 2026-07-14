@@ -7,10 +7,10 @@
 
 :root{
   /* ---- palette ---- */
-  --navy:        #0B0E13;   /* near-black charcoal, cool undertone */
-  --navy-deep:   #05070A;   /* deeper background / footer */
-  --navy-line:   rgba(160, 205, 240, 0.10); /* fine grid lines */
-  --navy-line-strong: rgba(160, 205, 240, 0.24);
+  --navy:        #0F2A44;   /* primary background — v1 blue */
+  --navy-deep:   #0A1E33;   /* deeper background / footer */
+  --navy-line:   rgba(11, 14, 19, 0.55); /* grid lines — v4's dark square color */
+  --navy-line-strong: rgba(11, 14, 19, 0.85);
   --cyan:        #8FD6FF;   /* blueprint linework / headings on navy */
   --cyan-dim:    #5B93B8;
   --ink:         #EAF3FB;   /* body text on navy */
@@ -112,7 +112,7 @@ h1,h2,h3,h4{
   top: 18px;
   right: 18px;
   border: 1px solid var(--navy-line-strong);
-  background: rgba(6, 9, 13, 0.6);
+  background: rgba(10, 30, 51, 0.55);
   backdrop-filter: blur(2px);
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10.5px;
@@ -217,10 +217,11 @@ h1.display{
 }
 h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 .role-line{
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
   color: var(--cyan);
   font-size: 15px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.01em;
   margin-top: 18px;
 }
 .hero-lede{
@@ -308,7 +309,7 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 .about-photo{
   border: 1px solid var(--navy-line-strong);
   padding: 10px;
-  background: rgba(6,9,13,.5);
+  background: rgba(10,30,51,.4);
 }
 .about-photo img{ width: 100%; display: block; filter: grayscale(15%) contrast(1.03); }
 .about-photo .cap{
@@ -359,7 +360,7 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 }
 .proj-card{
   border: 1px solid var(--navy-line-strong);
-  background: rgba(6, 9, 13, 0.45);
+  background: rgba(10, 30, 51, 0.35);
   text-decoration: none;
   color: var(--ink);
   display: block;
@@ -405,8 +406,9 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 }
 .tl-entry:first-child{ padding-top: 0; }
 .tl-date{
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
   color: var(--cyan-dim);
   padding-top: 4px;
 }
@@ -425,14 +427,14 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 }
 .tl-org{ font-size: 22px; }
 .tl-role{
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
   color: var(--redline);
-  font-size: 12.5px;
-  letter-spacing: 0.04em;
+  font-size: 13.5px;
+  letter-spacing: 0.01em;
   margin-top: 4px;
-  text-transform: uppercase;
 }
-.tl-loc{ color: var(--cyan-dim); font-size: 13px; margin-top: 2px; font-family:'IBM Plex Mono', monospace; }
+.tl-loc{ color: var(--cyan-dim); font-size: 13.5px; margin-top: 2px; font-family: 'IBM Plex Sans', sans-serif; }
 .tl-entry ul{ margin: 14px 0 0; padding-left: 18px; color: var(--ink-dim); font-size: 14.5px; }
 .tl-entry li{ margin-bottom: 6px; }
 .tl-entry.early{ opacity: 0.82; }
@@ -440,8 +442,8 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 .tl-entry.edu .tl-role{ color: var(--cyan); }
 .tl-entry.edu .tl-org{ color: var(--cyan); }
 .tl-note{
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11.5px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
   color: var(--cyan-dim);
   font-style: normal;
 }
@@ -506,6 +508,23 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 .detail-side .spec-table tr{ display:block; }
 .gallery{ display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 30px; }
 .gallery img{ width: 100%; border: 1px solid var(--navy-line-strong); display:block; }
+
+.img-blank{
+  border: 1px dashed var(--cyan-dim);
+  background: repeating-linear-gradient(135deg, transparent 0 10px, rgba(90,180,255,0.06) 10px 11px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan-dim);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  min-height: 260px;
+}
+.detail-hero-img.img-blank{ min-height: 340px; }
+.gallery .img-blank{ min-height: 160px; border-color: var(--navy-line-strong); }
+.proj-card .thumb.img-blank{ min-height: unset; height: 100%; }
 
 @media (max-width: 860px){
   .detail-grid{ grid-template-columns: 1fr; }
