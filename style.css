@@ -174,6 +174,7 @@ header.site-header{
   align-items: center;
   justify-content: space-between;
   height: 64px;
+  position: relative;
 }
 .brand{
   font-family: 'Oswald', sans-serif;
@@ -205,25 +206,61 @@ nav.primary a:hover, nav.primary a.active{
 }
 nav.primary a .num{ color: var(--redline); margin-right: 6px; }
 
-@media (max-width: 640px){
-  nav.primary{ gap: 2px; }
-  nav.primary a{ padding: 8px 8px; font-size: 10.5px; }
+/* Hamburger toggle — hidden on desktop, shown at the mobile/tablet breakpoint below */
+.nav-toggle{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 34px;
+  background: transparent;
+  border: 1px solid var(--navy-line-strong);
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span{
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform .2s ease, opacity .2s ease;
+}
+.nav-toggle.active span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2){ opacity: 0; }
+.nav-toggle.active span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 760px){
+  .nav-toggle{ display: flex; }
+  nav.primary{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(8, 20, 35, 0.98);
+    border-bottom: 1px solid var(--navy-line-strong);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+  }
+  nav.primary.open{ display: flex; }
+  nav.primary a{
+    padding: 15px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--navy-line);
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  nav.primary a:last-child{ border-bottom: none; }
 }
 
 @media (max-width: 480px){
   .nav-inner{ padding: 0 16px; }
   .brand{ font-size: 15px; gap: 5px; }
   .brand .mono{ font-size: 9px; }
-  nav.primary{
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    max-width: 62vw;
-  }
-  nav.primary::-webkit-scrollbar{ display: none; }
-  nav.primary a{ flex: 0 0 auto; padding: 8px 6px; font-size: 9.5px; }
-  nav.primary a .num{ display: none; }
 }
 
 /* ============================================================
@@ -280,6 +317,14 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
   font-size: 11px;
   letter-spacing: 0.12em;
   white-space: nowrap;
+}
+@media (max-width: 700px){
+  .dim-line{
+    white-space: normal;
+    justify-content: center;
+    text-align: center;
+  }
+  .dim-line::before, .dim-line::after{ display: none; }
 }
 .dim-line::before, .dim-line::after{
   content: "";
@@ -390,7 +435,7 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 @media (max-width: 640px){
   .spec-table tr{ display: block; padding: 12px 0; }
   .spec-table td{ display: block; padding: 4px 0; }
-  .spec-table td.spec-label{ width: auto; margin-bottom: 4px; }
+  .spec-table td.spec-label{ width: auto; margin-bottom: 4px; white-space: normal; }
 }
 
 /* ============================================================
