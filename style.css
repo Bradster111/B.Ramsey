@@ -88,6 +88,9 @@ h1,h2,h3,h4{
   position: relative;
   z-index: 1;
 }
+@media (max-width: 480px){
+  .wrap{ padding: 0 18px; }
+}
 
 /* ============================================================
    CORNER REGISTRATION MARKS — signature motif
@@ -98,6 +101,9 @@ h1,h2,h3,h4{
   border-bottom: 1px solid var(--navy-line-strong);
 }
 .sheet:last-of-type{ border-bottom: none; }
+@media (max-width: 480px){
+  .sheet{ padding: 56px 0; }
+}
 
 .reg-mark{
   position: absolute;
@@ -204,10 +210,29 @@ nav.primary a .num{ color: var(--redline); margin-right: 6px; }
   nav.primary a{ padding: 8px 8px; font-size: 10.5px; }
 }
 
+@media (max-width: 480px){
+  .nav-inner{ padding: 0 16px; }
+  .brand{ font-size: 15px; gap: 5px; }
+  .brand .mono{ font-size: 9px; }
+  nav.primary{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 62vw;
+  }
+  nav.primary::-webkit-scrollbar{ display: none; }
+  nav.primary a{ flex: 0 0 auto; padding: 8px 6px; font-size: 9.5px; }
+  nav.primary a .num{ display: none; }
+}
+
 /* ============================================================
    HERO
    ============================================================ */
 .hero{ padding: 100px 0 70px; position: relative; }
+@media (max-width: 480px){
+  .hero{ padding: 56px 0 50px; }
+}
 .eyebrow{
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
@@ -362,13 +387,18 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
   border: 1px solid var(--navy-line-strong);
   padding: 5px 10px;
 }
+@media (max-width: 640px){
+  .spec-table tr{ display: block; padding: 12px 0; }
+  .spec-table td{ display: block; padding: 4px 0; }
+  .spec-table td.spec-label{ width: auto; margin-bottom: 4px; }
+}
 
 /* ============================================================
    PROJECT / WORK CARDS
    ============================================================ */
 .card-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 26px;
 }
 .proj-card{
@@ -519,7 +549,7 @@ h1.display .thin{ color: var(--cyan-dim); font-weight: 400; }
 .detail-side .spec-table td.spec-label{ width: auto; display:block; padding-bottom: 2px; }
 .detail-side .spec-table td{ display: block; padding: 10px 0; }
 .detail-side .spec-table tr{ display:block; }
-.gallery{ display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 30px; }
+.gallery{ display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 30px; }
 .gallery img{ width: 100%; border: 1px solid var(--navy-line-strong); display:block; }
 
 .img-blank{
